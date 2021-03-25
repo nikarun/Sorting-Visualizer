@@ -15,7 +15,7 @@ return [...arr,...left,...right];
 }
 
 const mergeSort=function(array){
-    let half=array.length/2;
+    let half=Math.floor(array.length/2);
     if(array.length<2){
         return array;
     }

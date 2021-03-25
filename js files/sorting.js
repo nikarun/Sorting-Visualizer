@@ -3,7 +3,7 @@ const newArrayButton=document.querySelector(".new-array");
 const bubbleSortButton=document.querySelector(".bubble-sort");
 const selectionSortButton=document.querySelector(".selection-sort");
 const quickSortButton=document.querySelector(".quick-sort");
-const mergeSortButton=document.querySelector(".merge-sort");
+//const mergeSortButton=document.querySelector(".merge-sort");
 const insertionSortButton=document.querySelector(".insertion-sort");
 const barArraySize=document.querySelector("#arr_sz");
 const speedSlider=document.querySelector("#sp_slider");
@@ -13,7 +13,8 @@ let n=0;
 let barArray=[];
 
 const barCreation=function(){
-    n=barArraySize.value;
+   n=barArraySize.value;
+   
 barArray=[];
 let barStrips=document.querySelector('#chart');
 barStrips.textContent='';
@@ -57,7 +58,7 @@ const bubbleSort=async function(){
     bubbleSortButton.style.backgroundColor="green";
 newArrayButton.disabled=true;
 insertionSortButton.disabled=true;
-mergeSortButton.disabled=true;
+//mergeSortButton.disabled=true;
 quickSortButton.disabled=true;
 selectionSortButton.disabled=true;
 bubbleSortButton.disabled=true;
@@ -87,7 +88,7 @@ for(let i=0;i<n;i++){
 bubbleSortButton.style.backgroundColor="black";
 newArrayButton.disabled=false;
 insertionSortButton.disabled=false;
-mergeSortButton.disabled=false;
+//mergeSortButton.disabled=false;
 quickSortButton.disabled=false;
 selectionSortButton.disabled=false;
 bubbleSortButton.disabled=false;
@@ -99,7 +100,7 @@ const selectionSort=async function(){
     selectionSortButton.style.backgroundColor="green";
 newArrayButton.disabled=true
 insertionSortButton.disabled=true
-mergeSortButton.disabled=true
+//mergeSortButton.disabled=true
 quickSortButton.disabled=true
 selectionSortButton.disabled=true
 bubbleSortButton.disabled=true;
@@ -136,7 +137,7 @@ if(!(ithHeightBar.style.height===minHeightBar.style.height)) minHeightBar.style.
 selectionSortButton.style.backgroundColor="black";
 newArrayButton.disabled=false
 insertionSortButton.disabled=false
-mergeSortButton.disabled=false
+//mergeSortButton.disabled=false
 quickSortButton.disabled=false
 selectionSortButton.disabled=false
 bubbleSortButton.disabled=false;
@@ -148,7 +149,7 @@ const insertionSort=async function(){
     insertionSortButton.style.backgroundColor="green";
 newArrayButton.disabled=true;
 insertionSortButton.disabled=true;
-mergeSortButton.disabled=true;
+//mergeSortButton.disabled=true;
 quickSortButton.disabled=true;
 selectionSortButton.disabled=true;
 bubbleSortButton.disabled=true;
@@ -179,7 +180,7 @@ el3.style.backgroundColor="red";
 insertionSortButton.style.backgroundColor="black";
 newArrayButton.disabled=false
 insertionSortButton.disabled=false
-mergeSortButton.disabled=false
+//mergeSortButton.disabled=false
 quickSortButton.disabled=false
 selectionSortButton.disabled=false
 bubbleSortButton.disabled=false;
@@ -240,7 +241,7 @@ const quickSort=async function(){
 quickSortButton.style.backgroundColor="green";
 newArrayButton.disabled=true;
 insertionSortButton.disabled=true;
-mergeSortButton.disabled=true;
+// mergeSortButton.disabled=true;
 quickSortButton.disabled=true;
 selectionSortButton.disabled=true;
 bubbleSortButton.disabled=true;
@@ -248,121 +249,124 @@ barArraySize.disabled=true;
 
     const promise= await quickSortFunction(barArray,0,n-1);
 
-quickSortButton.style.backgroundColor="black";
+setTimeout(function(){
+    quickSortButton.style.backgroundColor="black";
 newArrayButton.disabled=false;
 insertionSortButton.disabled=false;
-mergeSortButton.disabled=false;
+//mergeSortButton.disabled=false;
 quickSortButton.disabled=false;
 selectionSortButton.disabled=false;
 bubbleSortButton.disabled=false;
 barArraySize.disabled=false;
+},10000)
 }
 
-const merge=async function(si,ei,mid){
-if(si<ei){
-    let leftIndex=mid-si+1;
-    let rightIndex=ei-mid;
-    let leftArray=[];
-    let rightArray=[];
-    for(let i=0;i<leftIndex;i++){
-        leftArray[i]=barArray[i+si];
-    }
-    for(let j=0;j<rightIndex;j++){
-        rightArray[j]=barArray[mid+1+j];
-    }
-    let i=0,j=0,k=si;
-    while(i<leftIndex && j<rightIndex){
-        await Delay(1);
-       const elem1=document.querySelector(`.bar-${k}`)
-      console.log(elem1);
-     
-        if(leftArray[i]<rightArray[j]){
-            const elem2=document.querySelector(`.bar-${i}`);
-            elem2.style.backgroundColor="blue";
-            const height1=window.getComputedStyle(elem2).getPropertyValue("height");
-            console.log(height1);
-            elem1.style.height=height1;
-            console.log(leftArray[i]);
-            console.log(elem1);
-            elem1.style.backgroundColor="blue";
-            
-            barArray[k]=leftArray[i++];   
-            elem2.style.backgroundColor="red";
-        }else{
-            const elem2=document.querySelector(`.bar-${j}`);
-            elem2.style.backgroundColor="blue";
-            const height1=window.getComputedStyle(elem2).getPropertyValue("height");
-            elem1.style.backgroundColor="blue";
-            elem1.style.height=height1;
+// const merge=async function(si,ei,mid){
+// if(si<ei){
+//     let leftIndex=mid-si+1;
+//     let rightIndex=ei-mid;
+//     let leftArray=[];
+//     let rightArray=[];
+//     for(let i=0;i<leftIndex;i++){
+//         leftArray[i]=barArray[i+si];
+//     }
+//     for(let j=0;j<rightIndex;j++){
+//         rightArray[j]=barArray[mid+1+j];
+//     }
+//     let i=0,j=0,k=si;
+//     while(i<leftIndex && j<rightIndex){
+//         await Delay(1);
+//        const elem1=document.querySelector(`.bar-${k}`)
+//         if(leftArray[i]<rightArray[j]){
+//             const elem2=document.querySelector(`.bar-${i+si}`);
+//             elem2.style.backgroundColor="blue";
+//            swap(elem1,elem2);
            
-            barArray[k]=rightArray[j++];
-            elem2.style.backgroundColor="red";
-        }
+//             elem1.style.backgroundColor="blue";
+            
+//             barArray[k]=leftArray[i++];   
+//             elem2.style.backgroundColor="red";
+//         }else{
+//             const elem2=document.querySelector(`.bar-${mid+1+j}`);
+//             elem2.style.backgroundColor="blue";
+//             const height1=window.getComputedStyle(elem2).getPropertyValue("height");
+//             elem1.style.backgroundColor="blue";
+//             elem1.style.height=height1;
+           
+//             barArray[k]=rightArray[j++];
+//             elem2.style.backgroundColor="red";
+//         }
        
-        elem1.style.backgroundColor="green";
-        k++;
-    }
-    while(i<leftIndex){
-        const elem2=document.querySelector(`.bar-${i}`);
-            elem2.style.backgroundColor="blue";
-            const height1=window.getComputedStyle(elem2).getPropertyValue("height");
-            const elem1=document.querySelector(`.bar-${k}`)
-            elem1.style.height=height1;
-        barArray[k]=leftArray[i++];
+//         elem1.style.backgroundColor="green";
+//         k++;
+//     }
+//     while(i<leftIndex){
+//         const elem2=document.querySelector(`.bar-${k}`);
+//             elem2.style.backgroundColor="blue";
+//             const height1=window.getComputedStyle(elem2).getPropertyValue("height");
+//             const elem1=document.querySelector(`.bar-${k}`)
+//             elem1.style.height=height1;
+//         barArray[k]=leftArray[i++];
        
-        eleml1.style.backgroundColor="green";
-        k++;
-    }
-    while(j<rightIndex){
-        const elem2=document.querySelector(`.bar-${j}`);
-            elem2.style.backgroundColor="blue";
-            const height1=window.getComputedStyle(elem2).getPropertyValue("height");
-            const elem1=document.querySelector(`.bar-${k}`)
-            elem1.style.height=height1;
-        barArray[k]=rightArray[j++];
-        const el1=document.querySelector(`.bar-${k}`);
-        el1.style.backgroundColor="green";
-        k++;
-    }
-}
-}
-const mergeSortFunc=async function(si,ei){
-    if(si<ei){
-        const mid=Math.floor((si+ei)/2);
+//         elem1.style.backgroundColor="green";
+//         k++;
+//     }
+//     while(j<rightIndex){
+//         const elem2=document.querySelector(`.bar-${j}`);
+//             elem2.style.backgroundColor="blue";
+//             const height1=window.getComputedStyle(elem2).getPropertyValue("height");
+//             const elem1=document.querySelector(`.bar-${k}`)
+//             elem1.style.height=height1;
+//         barArray[k]=rightArray[j++];
         
-       await mergeSortFunc(si,mid);
-       await mergeSortFunc(mid+1,ei);
-        return merge(si,ei,mid);
-    }
-}
-const mergeSort=async function(){
-    mergeSortButton.style.backgroundColor="green";
-    newArrayButton.disabled=true;
-    insertionSortButton.disabled=true;
-    mergeSortButton.disabled=true;
-    quickSortButton.disabled=true;
-    selectionSortButton.disabled=true;
-    bubbleSortButton.disabled=true;
-    barArraySize.disabled=true;
-    
-    const promise=await mergeSortFunc(0,n-1);
-    
-    // console.log(barArray);
-    newArrayButton.disabled=false;
-    insertionSortButton.disabled=false;
-    mergeSortButton.disabled=false;
-    quickSortButton.disabled=false;
-    selectionSortButton.disabled=false;
-    bubbleSortButton.disabled=false;
-    barArraySize.disabled=false;
-}
+//         elem1.style.backgroundColor="green";
+//         k++;
+//     }
+// }
+// }
+// const mergeSortFunc=async function(barArray,si,ei){
+//     if(si===ei) return;
+//     if(si<ei){
+//         const mid=Math.floor((si+ei)/2);
+        
+//        await mergeSortFunc(barArray,si,mid);
+//        await mergeSortFunc(barArray,mid+1,ei);
+//         return merge(barArray,si,ei,mid);
+//     }
+// }
+
+// const mergeSort=async (barArray) => {
+//     mergeSortButton.style.backgroundColor = "green";
+//     newArrayButton.disabled = true;
+//     insertionSortButton.disabled = true;
+//     mergeSortButton.disabled = true;
+//     quickSortButton.disabled = true;
+//     selectionSortButton.disabled = true;
+//     bubbleSortButton.disabled = true;
+//     barArraySize.disabled = true;
+//    if(barArray.length<1) {
+//        return new Promise((resolve)=>{
+//        "promise fullfilled";
+//    });
+// }
+//     const promise = await mergeSortFunc(barArray,0,barArray.length-1);
+
+//     // console.log(barArray);
+//     newArrayButton.disabled = false;
+//     insertionSortButton.disabled = false;
+//     mergeSortButton.disabled = false;
+//     quickSortButton.disabled = false;
+//     selectionSortButton.disabled = false;
+//     bubbleSortButton.disabled = false;
+//     barArraySize.disabled = false;
+// }
 
 newArrayButton.addEventListener("click",barCreation);
 bubbleSortButton.addEventListener("click",bubbleSort);
 selectionSortButton.addEventListener("click",selectionSort);
 insertionSortButton.addEventListener("click",insertionSort);
 quickSortButton.addEventListener("click",quickSort);
-mergeSortButton.addEventListener("click",mergeSort);
+//mergeSortButton.addEventListener("click",mergeSort(barArray));
 barArraySize.addEventListener("input",barCreation);
 speedSlider.addEventListener("input",function(){
     delayResult=speedSlider.value;
