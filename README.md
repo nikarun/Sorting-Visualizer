@@ -7,6 +7,7 @@ you can feel and will get clear understanding about how different sorting algori
 insertion sort and quick sorts works.
 
 Technologies used for these projects:
+
 1 HTML
 
 2 CSS
