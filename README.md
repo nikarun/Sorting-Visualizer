@@ -8,7 +8,9 @@ insertion sort and quick sorts works.
 
 Technologies used for these projects:
 1 HTML
+
 2 CSS
+
 3 Javascript
  
 
