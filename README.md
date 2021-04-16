@@ -1,6 +1,7 @@
 # Sorting-Visualizer
 
 Live project link : https://sortingalgorithmvisualizer.netlify.app/
+
 This is a single page Application
 
 
